@@ -21,5 +21,8 @@ vulncheck:
 	govulncheck ./...
 
 
-release_snapshot:
+snapshot-local:
 	goreleaser release --snapshot --clean
+
+release-local:
+	goreleaser release --clean --skip=publish
