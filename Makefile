@@ -10,3 +10,16 @@ get_text:
 
 get_img:
 	curl -i http://localhost:8080/internal/sample_data/mic-drop.png
+
+compile_raspberry:
+	env GOOS=linux GOARCH=arm64 go build -o .bin/file-server ./cmd/file-server
+
+lint:
+	golangci-lint run
+
+vulncheck:
+	govulncheck ./...
+
+
+release_snapshot:
+	goreleaser release --snapshot --clean
