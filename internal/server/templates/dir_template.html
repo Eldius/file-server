@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Files Server</title>
+</head>
+<body>
+    <h1>Files:</h1>
+    <ul>
+        <li><a href="{{.CurrentPath}}">.</a></li>
+        <li><a href="{{.ParentPath}}">..</a></li>
+        {{range $val := .Entries}}
+        <li><a href="{{$val.Path}}">{{$val.Name}}</a></li>
+        {{end}}
+    </ul>
+</body>
+</html>
